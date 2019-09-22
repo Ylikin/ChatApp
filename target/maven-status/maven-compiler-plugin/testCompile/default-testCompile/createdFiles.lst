@@ -1,0 +1,9 @@
+client\Client.class
+coders\MessageDecoder.class
+endpoints\ChatEndpoint.class
+entities\Message.class
+entities\Story.class
+client\ClientEndpoint.class
+coders\MessageEncoder.class
+entities\Message$MessageBuilder.class
+servlets\MainServlet.class
