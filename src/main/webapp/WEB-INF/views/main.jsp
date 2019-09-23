@@ -29,6 +29,7 @@
         }
 
         .messages .msg {
+            word-wrap: break-word;
             background-color: darkblue;
             line-height: 30px;
             text-align: center;
@@ -89,8 +90,6 @@
             init() {
 
                 this.chatbox = document.querySelector(".chatbox");
-                // this.startBtn = this.startbox.querySelector(".button1");
-                // this.nameInput = this.startbox.querySelector("input");
                 this.startSendBtn = this.chatbox.querySelector(".SendButton");
 
 
@@ -199,7 +198,6 @@
                     setTimeout(() => {
                         this.chatbox.removeChild(div)
                     }, 5000);
-                    console.log("Incorrect specified parameters. /register (agent/client) (nickname)");
 
                 }
 

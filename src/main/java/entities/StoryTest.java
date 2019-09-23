@@ -1,7 +1,6 @@
 package entities;
 
 import client.ClientEndpoint;
-import endpoints.ChatEndpoint;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,10 +8,8 @@ import javax.websocket.ContainerProvider;
 import javax.websocket.DeploymentException;
 import javax.websocket.Session;
 import javax.websocket.WebSocketContainer;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
+
 import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.net.URI;
 
 import static org.mockito.Mockito.mock;
