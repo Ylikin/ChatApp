@@ -1,8 +1,8 @@
 package entities;
 
+import lombok.Data;
 
-
-
+@Data
 public class Message {
     public Message(String name, String role, String text) {
         this.name = name;

@@ -7,7 +7,7 @@ import org.junit.Test;
 import javax.websocket.EncodeException;
 
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.mock;
+
 
 public class MessageEncoderTest {
     private static Gson gson = new Gson();

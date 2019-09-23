@@ -29,6 +29,7 @@
         }
 
         .messages .msg {
+            word-wrap: break-word;
             background-color: darkblue;
             line-height: 30px;
             text-align: center;
