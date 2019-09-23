@@ -57,8 +57,10 @@ public class Client {
         while (true) {
             try {
                 userWord = client.inputUser.readLine();
-                Message msg = new Message(name, role, userWord);
-                session.getBasicRemote().sendObject(msg);
+                if(!userWord.equals("")) {
+                    Message msg = new Message(name, role, userWord);
+                    session.getBasicRemote().sendObject(msg);
+                }
                 if (userWord.equals("/exit")) {
                     break;
                 } else if (userWord.equals("/leave")) {

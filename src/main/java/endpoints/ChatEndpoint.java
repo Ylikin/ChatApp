@@ -45,7 +45,6 @@ public class ChatEndpoint {
         sessionList.remove(session);
         sessionListAvailableAgents.remove(session);
         chatList.remove(session);
-        System.out.println("onError");
         throwable.printStackTrace();
     }
 
@@ -76,13 +75,14 @@ public class ChatEndpoint {
                 } catch (IOException | EncodeException e) {
                     e.printStackTrace();
                 }
-                //log.info("Client :"+clientName+" disconnected");
+                log.info("Client :"+msg.getName()+" disconnected");
                 chatList.remove(this.vr1);
                 sessionListAvailableAgents.add(this.vr1);
                 Collections.shuffle(sessionListAvailableAgents);
                 leave = false;
             } else if (msg.getRole().equals("client") && msg.getText().equals("/leave") && !chatList.containsKey(this.vr1)) {
                 try {
+                    msg.setName("");
                     msg.setText("Agent not connected");
                     session.getBasicRemote().sendObject(msg);
                 } catch (IOException | EncodeException e) {
@@ -109,7 +109,15 @@ public class ChatEndpoint {
                 }
                 if (chatList.get(this.vr1) != session) {
                     if (!msg.getText().equals("Connected") && !msg.getText().equals("")) {
+
                         story.addStory(msg.getText(), session);
+                        msg.setName("");
+                        msg.setText("Agent not connected");
+                        try {
+                            session.getBasicRemote().sendObject(msg);
+                        } catch (IOException | EncodeException e) {
+                            e.printStackTrace();
+                        }
                     }
                 } else {
                     try {
