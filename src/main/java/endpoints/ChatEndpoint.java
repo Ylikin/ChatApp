@@ -109,6 +109,7 @@ public class ChatEndpoint {
         onClose(session);
     }
     private void logIn(Session session,Message msg){
+        Collections.shuffle(sessionListAvailableAgents);
         if (sessionList.contains(session) && !sessionListAvailableAgents.isEmpty() && !chatList.containsKey(this.vr1)) {
             Collections.shuffle(sessionListAvailableAgents);
             this.vr1 = sessionListAvailableAgents.get(0);
@@ -130,6 +131,7 @@ public class ChatEndpoint {
 
                 story.addStory(msg.getText(), session);
                 msg.setName("");
+                msg.setRole("");
                 msg.setText("Agent not connected");
                 try {
                     session.getBasicRemote().sendObject(msg);
