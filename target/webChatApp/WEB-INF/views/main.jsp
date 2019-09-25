@@ -29,6 +29,7 @@
         }
 
         .messages .msg {
+            word-wrap: break-word;
             background-color: darkblue;
             line-height: 30px;
             text-align: center;
@@ -82,9 +83,7 @@
         let ws;
         let reg;
         let check = false;
-        let check2 = false;
         let k;
-        let roleInput;
         let chatUnit = {
             init() {
 
