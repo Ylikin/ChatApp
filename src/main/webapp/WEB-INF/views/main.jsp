@@ -83,9 +83,7 @@
         let ws;
         let reg;
         let check = false;
-        let check2 = false;
         let k;
-        let roleInput;
         let chatUnit = {
             init() {
 
