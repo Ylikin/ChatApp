@@ -6,12 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2488cbb3-cd41-4053-8fc5-70f6c082657b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/chatUnit.js" afterDir="false" />
+    <list default="true" id="2488cbb3-cd41-4053-8fc5-70f6c082657b" name="Default Changelist" comment="add .gitignore">
+      <change beforePath="$PROJECT_DIR$/.gitignore.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/endpoints/ChatEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/endpoints/ChatEndpoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/webChatApp/WEB-INF/views/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/webChatApp/WEB-INF/views/main.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -29,8 +26,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/endpoints/ChatEndpoint.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2941">
-              <caret line="173" column="9" lean-forward="true" selection-start-line="173" selection-start-column="9" selection-end-line="173" selection-end-column="9" />
+            <state relative-caret-position="436">
+              <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -316,14 +313,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webChatApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webChatApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -521,7 +510,7 @@
       <workItem from="1568975726893" duration="27577000" />
       <workItem from="1569108491474" duration="12547000" />
       <workItem from="1569149958241" duration="23650000" />
-      <workItem from="1569189460668" duration="30025000" />
+      <workItem from="1569189460668" duration="31097000" />
     </task>
     <task id="LOCAL-00001" summary="create web interface">
       <created>1569193823050</created>
@@ -572,7 +561,21 @@
       <option name="project" value="LOCAL" />
       <updated>1569426867080</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="correction x1">
+      <created>1569520727805</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1569520727805</updated>
+    </task>
+    <task id="LOCAL-00009" summary="add .gitignore">
+      <created>1569521334530</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1569521334530</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -587,10 +590,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149765000" />
+    <option name="totallyTimeSpent" value="150837000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8523207" visible="true" weight="0.1932886" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -607,9 +611,9 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49932885" visible="true" weight="0.7393768" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49932885" weight="0.7393768" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50067115" side_tool="true" weight="0.5410765" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3286119" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.11898017" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -653,7 +657,9 @@
     <MESSAGE value="bug fix x2" />
     <MESSAGE value="bug fix x3" />
     <MESSAGE value="bug fix x10" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fix x10" />
+    <MESSAGE value="correction x1" />
+    <MESSAGE value="add .gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="add .gitignore" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/views.jsp" />
@@ -864,8 +870,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/endpoints/ChatEndpoint.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2941">
-          <caret line="173" column="9" lean-forward="true" selection-start-line="173" selection-start-column="9" selection-end-line="173" selection-end-column="9" />
+        <state relative-caret-position="436">
+          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
