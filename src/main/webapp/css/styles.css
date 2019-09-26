@@ -1,0 +1,75 @@
+
+.chatBox {
+    /*display:none;*/
+    /*delete*/
+}
+
+.messages {
+    background-color: dodgerblue;
+    width: 500px;
+    padding: 20px;
+    overflow-x: hidden;
+    max-height: 400px;
+    min-height: 400px;
+
+}
+
+.messages .msg {
+
+    background-color: #fff;
+    border-radius: 10px;
+    margin-bottom: 10px;
+
+
+}
+
+.messages .msg {
+    word-wrap: break-word;
+    background-color: darkblue;
+    line-height: 30px;
+    text-align: center;
+    color: white;
+}
+
+.messages .msg .from {
+    background-color: deepskyblue;
+    line-height: 30px;
+}
+
+.messages .msg .text {
+    padding: 10px;
+
+}
+
+.bord {
+
+    max-width: 540px;
+    border: 2px outset black;
+}
+
+textarea.msg {
+    width: 520px;
+    padding: 10px;
+    resize: none;
+    border: none;
+    box-shadow: 2px 2px 5px 0 inset;
+}
+
+.SendButton {
+    background-color: deepskyblue;
+    border-radius: 5px;
+    min-width: 100px;
+    min-height: 40px;
+    border-color: deepskyblue;
+    color: white;
+}
+
+.alert {
+    max-width: 530px;
+    max-height: 40px;
+    padding: 15px;
+    border: 1px solid #d6e9c6;
+    border-radius: 4px;
+    color: white;
+    background-color: red;
+}
