@@ -1,7 +1,0 @@
-src\main\java\coders\MessageEncoder.java
-src\main\java\coders\MessageDecoder.java
-src\main\java\servlets\MainServlet.java
-src\main\java\endpoints\ChatEndpoint.java
-src\main\java\client\Client.java
-src\main\java\client\ClientEndpoint.java
-src\main\java\entities\Message.java
