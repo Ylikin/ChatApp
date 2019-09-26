@@ -34,8 +34,11 @@ let chatUnit = {
     send() {
         if (!check) {
             this.register();
-        } else {
-
+        }
+        else {
+            if(this.msgTextArea.value==="/exit"){
+                this.chatbox.style.display = "none";
+            }
             this.sendMessage({
                 name: this.name = this.nameInput,
                 role: this.role = this.roleInput,
