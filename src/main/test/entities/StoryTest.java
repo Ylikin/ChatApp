@@ -8,12 +8,11 @@ import javax.websocket.ContainerProvider;
 import javax.websocket.DeploymentException;
 import javax.websocket.Session;
 import javax.websocket.WebSocketContainer;
-
 import java.io.IOException;
 import java.net.URI;
 
+import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.mock;
-import static org.junit.Assert.*;
 
 public class StoryTest {
     private WebSocketContainer container = ContainerProvider.getWebSocketContainer();
@@ -27,7 +26,7 @@ public class StoryTest {
     }
 
     @Test
-    public void Check_add_and_print_Story() throws IOException, DeploymentException {
+    public void check_add_and_print_Story() throws IOException, DeploymentException {
         Session session1 = container.connectToServer(mock(ClientEndpoint.class), URI.create(SERVER));
         Session session2 = container.connectToServer(mock(ClientEndpoint.class), URI.create(SERVER));
         Message msg=mock(Message.class);

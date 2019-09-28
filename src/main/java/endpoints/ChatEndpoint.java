@@ -19,14 +19,14 @@ import java.util.LinkedList;
 public class ChatEndpoint {
     private static final Logger log = LogManager.getLogger(ChatEndpoint.class);
     private Story story = new Story();
-    private Session vr1 = null;
+    private Session agentSession = null;
 
     private static LinkedList<Session> sessionList = new LinkedList<>();
     private static LinkedList<Session> sessionListAvailableAgents = new LinkedList<>();
-    private static LinkedHashMap<Session, Session> chatList = new LinkedHashMap<>();
+    private static LinkedHashMap<Session, Session> chatMap = new LinkedHashMap<>();
 
 
-    @OnOpen//this thread
+    @OnOpen
     public void onOpen(Session session) {
         log.info("Session opened :"+session);
         sessionList.add(session);
@@ -44,7 +44,7 @@ public class ChatEndpoint {
         log.error("Error :"+throwable);
         sessionList.remove(session);
         sessionListAvailableAgents.remove(session);
-        chatList.remove(session);
+        chatMap.remove(session);
         throwable.printStackTrace();
     }
 
@@ -53,16 +53,16 @@ public class ChatEndpoint {
         if(msg.getText().equals("")){
             log.info(msg.getRole()+"|"+msg.getName()+" registered");
         }
-        if (msg.getRole().equals("agent") && !sessionListAvailableAgents.contains(session) && !chatList.containsKey(session)) {
+        if (msg.getRole().equals("agent") && !sessionListAvailableAgents.contains(session) && !chatMap.containsKey(session)) {
             sessionListAvailableAgents.add(session);
             Collections.shuffle(sessionListAvailableAgents);
         }
         if (msg.getText().equals("/exit")) {
             exit(session, msg);
         } else {
-            if (msg.getRole().equals("agent") && chatList.containsKey(session)) {
+            if (msg.getRole().equals("agent") && chatMap.containsKey(session)) {
                 try {
-                    chatList.get(session).getBasicRemote().sendObject(msg);
+                    chatMap.get(session).getBasicRemote().sendObject(msg);
                 } catch (IOException | EncodeException e) {
                     e.printStackTrace();
                 }
@@ -75,25 +75,25 @@ public class ChatEndpoint {
 
     private void exit(Session session, Message msg) {
 
-        if (msg.getRole().equals("client") && chatList.containsKey(this.vr1)) {
+        if (msg.getRole().equals("client") && chatMap.containsKey(this.agentSession)) {
             msg.setText("Disconnected");
             try {
-                this.vr1.getBasicRemote().sendObject(msg);
+                this.agentSession.getBasicRemote().sendObject(msg);
             } catch (IOException | EncodeException e) {
                 e.printStackTrace();
             }
-            chatList.remove(vr1);
-            sessionListAvailableAgents.add(vr1);
+            chatMap.remove(agentSession);
+            sessionListAvailableAgents.add(agentSession);
             Collections.shuffle(sessionListAvailableAgents);
             log.info("Client :"+msg.getName()+" /exit: ");
-        } else if (msg.getRole().equals("agent") && chatList.containsKey(session)) {
+        } else if (msg.getRole().equals("agent") && chatMap.containsKey(session)) {
             msg.setText("Disconnected");
             try {
-                chatList.get(session).getBasicRemote().sendObject(msg);
+                chatMap.get(session).getBasicRemote().sendObject(msg);
             } catch (IOException | EncodeException e) {
                 e.printStackTrace();
             }
-            chatList.remove(session);
+            chatMap.remove(session);
             log.info("Agent :"+msg.getName()+" /exit : ");
         }
         else
@@ -110,23 +110,22 @@ public class ChatEndpoint {
     }
     private void logIn(Session session,Message msg){
         Collections.shuffle(sessionListAvailableAgents);
-        if (sessionList.contains(session) && !sessionListAvailableAgents.isEmpty() && !chatList.containsKey(this.vr1)) {
-            Collections.shuffle(sessionListAvailableAgents);
-            this.vr1 = sessionListAvailableAgents.get(0);
-            chatList.put(this.vr1, session);
+        if (sessionList.contains(session) && !sessionListAvailableAgents.isEmpty() && !chatMap.containsKey(this.agentSession)) {
+            this.agentSession = sessionListAvailableAgents.get(0);
+            chatMap.put(this.agentSession, session);
             String msg1 = msg.getText();
             msg.setText("Connected");
             log.info("Agent connected to client: "+msg.getName());
             try {
-                this.vr1.getBasicRemote().sendObject(msg);
+                this.agentSession.getBasicRemote().sendObject(msg);
             } catch (IOException | EncodeException e) {
                 e.printStackTrace();
             }
-            story.printStory(session, this.vr1, msg);
+            story.printStory(session, this.agentSession, msg);
             msg.setText(msg1);
             sessionListAvailableAgents.remove(0);
         }
-        if (chatList.get(this.vr1) != session) {
+        if (chatMap.get(this.agentSession) != session) {
             if (!msg.getText().equals("Connected") && !msg.getText().equals("")) {
 
                 story.addStory(msg.getText(), session);
@@ -142,7 +141,7 @@ public class ChatEndpoint {
         } else {
             try {
                 if (!msg.getText().equals("")) {
-                    this.vr1.getBasicRemote().sendObject(msg);
+                    this.agentSession.getBasicRemote().sendObject(msg);
                 }
             } catch (IOException | EncodeException e) {
                 e.printStackTrace();
@@ -151,19 +150,19 @@ public class ChatEndpoint {
     }
     private boolean leave(Session session,Message msg){
         boolean leave = true;
-        if (msg.getRole().equals("client") && msg.getText().equals("/leave") && chatList.containsKey(this.vr1)) {
+        if (msg.getRole().equals("client") && msg.getText().equals("/leave") && chatMap.containsKey(this.agentSession)) {
             try {
                 msg.setText("Disconnected");
-                this.vr1.getBasicRemote().sendObject(msg);
+                this.agentSession.getBasicRemote().sendObject(msg);
             } catch (IOException | EncodeException e) {
                 e.printStackTrace();
             }
             log.info("Client :"+msg.getName()+" disconnected");
-            chatList.remove(this.vr1);
-            sessionListAvailableAgents.add(this.vr1);
+            chatMap.remove(this.agentSession);
+            sessionListAvailableAgents.add(this.agentSession);
             Collections.shuffle(sessionListAvailableAgents);
             leave = false;
-        } else if (msg.getRole().equals("client") && msg.getText().equals("/leave") && !chatList.containsKey(this.vr1)) {
+        } else if (msg.getRole().equals("client") && msg.getText().equals("/leave") && !chatMap.containsKey(this.agentSession)) {
             try {
                 msg.setName("");
                 msg.setText("Agent not connected");
@@ -175,6 +174,5 @@ public class ChatEndpoint {
         }
         return leave;
     }
-
 }
 
