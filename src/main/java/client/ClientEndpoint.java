@@ -23,7 +23,7 @@ public class ClientEndpoint {
         System.out.println(msg.getRole() + "| " + msg.getName() + ": " + msg.getText());
 
     }
-
+//you can log exceptions here
     @OnError
     public void processError(Throwable t) {
         t.printStackTrace();
