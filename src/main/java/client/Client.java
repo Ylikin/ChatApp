@@ -15,7 +15,7 @@ public class Client {
     private static Session session;
     private WebSocketContainer container = ContainerProvider.getWebSocketContainer();
     private BufferedReader inputUser;
-    private static String name;
+    private static String name;//why are this fields static(name, role and session) ?
     private static String role;
     private static final String SERVER = "ws://localhost:8080/webChatApp_war/chat";
 
@@ -45,7 +45,7 @@ public class Client {
             }
         } catch (IOException ignored) {
         } catch (DeploymentException | EncodeException e) {
-            e.printStackTrace();
+            e.printStackTrace();//can log exceptions here
         }
     }
 
@@ -69,7 +69,7 @@ public class Client {
                     System.out.println("Me: " + userWord);
                 }
             } catch (IOException | EncodeException e) {
-                e.printStackTrace();
+                e.printStackTrace();//can log exceptions here
             }
         }
     }
