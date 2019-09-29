@@ -21,7 +21,7 @@ public class ChatEndpoint {
     private Story story = new Story();
     private Session agentSession = null;
 
-    private static LinkedList<Session> sessionList = new LinkedList<>();
+    private static LinkedList<Session> sessionList = new LinkedList<>();//as this collections static, to my mind here should be used concurrent collectionsversion  
     private static LinkedList<Session> sessionListAvailableAgents = new LinkedList<>();
     private static LinkedHashMap<Session, Session> chatMap = new LinkedHashMap<>();
 
@@ -53,6 +53,7 @@ public class ChatEndpoint {
         if(msg.getText().equals("")){
             log.info(msg.getRole()+"|"+msg.getName()+" registered");
         }
+        //you can create field for role and name and don`t check them every time
         if (msg.getRole().equals("agent") && !sessionListAvailableAgents.contains(session) && !chatMap.containsKey(session)) {
             sessionListAvailableAgents.add(session);
             Collections.shuffle(sessionListAvailableAgents);
