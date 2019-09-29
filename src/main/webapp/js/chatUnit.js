@@ -86,7 +86,7 @@ let chatUnit = {
         this.ws.onopen = () => this.onOpenSock();
         this.ws.onmessage = (e) => this.onMessage(JSON.parse(e.data));
         this.ws.onclose = (e) => this.onClose();
-        this.name = this.nameInput.value;
+        this.name = this.nameInput.value;//these fields are not used, because the same are in line 43, 44
         this.role = this.roleInput.value;
         this.chatbox.style.display = "block";
 
@@ -104,7 +104,7 @@ let chatUnit = {
                 check = true;
                 checkRegister = true;
                 this.openSocket();
-            } else {
+            } else {//misprint
 
             }
         } else {
@@ -115,7 +115,7 @@ let chatUnit = {
             this.chatbox.appendChild(div);
             setTimeout(() => {
                 this.chatbox.removeChild(div)
-            }, 5000);
+            }, 5000);//it can de removed after checkRegister become true)
 
         }
 
