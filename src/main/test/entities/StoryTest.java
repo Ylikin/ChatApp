@@ -27,7 +27,7 @@ public class StoryTest {
 
     @Test
     public void check_add_and_print_Story() throws IOException, DeploymentException {
-        Session session1 = container.connectToServer(mock(ClientEndpoint.class), URI.create(SERVER));
+        Session session1 = container.connectToServer(mock(ClientEndpoint.class), URI.create(SERVER));//I have some doubt about mocking, in Story the session method is called
         Session session2 = container.connectToServer(mock(ClientEndpoint.class), URI.create(SERVER));
         Message msg=mock(Message.class);
         String el="qwe";
